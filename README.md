@@ -106,86 +106,69 @@ NovaCart is designed around separation of concerns:
 
 ---
 
+## Architecture Documentation Links
+
+For deep-dive documentation on each individual layer, explore the dedicated guides:
+* 🌐 **[Frontend Architecture & UI System (FRONTEND.md)](FRONTEND.md)** — All 20 interfaces, CSS tokens, JS modules, responsive design, and cart drawer.
+* ⚙️ **[Backend Architecture & REST APIs (BACKEND.md)](BACKEND.md)** — Django apps, authentication, full REST API reference, snapshots, and idempotency.
+* 🗄️ **[Database Architecture & Schema (DATABASE.md)](DATABASE.md)** — SQLite relational design, Mermaid ER diagram, SQL DDL schema, and seeding.
+
+---
+
 ## Project Directory Structure
 
+NovaCart is organized into clean, dedicated directories for **Frontend**, **Backend**, and **Database**:
+
 ```text
-NoveShoppingCart/
+NovaShoppingCart/
 │
-├── manage.py                     # Django management script
-├── seed_db.py                    # Database seeding script (categories, products, demo users)
-├── requirements.txt              # Python package dependencies
-├── db.sqlite3                    # SQLite relational database
+├── frontend/                     # Dedicated Frontend Layer (HTML, CSS, JS, Assets)
+│   ├── index.html                # Home Page
+│   ├── shop.html                 # Shop Catalog
+│   ├── product.html              # Product Details
+│   ├── cart.html                 # Shopping Cart
+│   ├── empty-cart.html           # Empty Cart View
+│   ├── checkout.html             # Checkout View
+│   ├── payment.html              # Payment Gateway Simulation
+│   ├── order-success.html        # Order Success View
+│   ├── orders.html               # My Orders Dashboard
+│   ├── order-details.html        # Order Details & Printable Invoice
+│   ├── order-tracking.html       # 4-Stage Shipment Tracker
+│   ├── wishlist.html             # Wishlist View
+│   ├── profile.html              # User Profile View
+│   ├── login.html                # Login Page
+│   ├── register.html             # Registration Page
+│   ├── notifications.html        # Notifications View
+│   ├── mobile-menu.html          # Mobile Drawer View
+│   ├── mobile-view.html          # Mobile Responsive Layout
+│   ├── toast-notifications.html  # Toast Notification Demo
+│   ├── 404.html                  # Branded 404 View
+│   ├── css/                      # CSS Design Tokens & Stylesheets
+│   ├── js/                       # ES6+ JavaScript Modules & NovaAPI
+│   └── assets/                   # Vector SVGs, Products, Icons, Avatars
 │
-├── novacart_project/             # Django project configuration
-│   ├── __init__.py
-│   ├── settings.py               # Global Django configuration & app registry
-│   ├── urls.py                   # Master routing (APIs + static page delivery)
-│   ├── views.py                  # Page serving views
-│   └── wsgi.py                   # WSGI entry point
+├── backend/                      # Dedicated Backend Layer (Django 6.1.1)
+│   ├── manage.py                 # Django CLI management script
+│   ├── requirements.txt          # Python dependencies
+│   ├── novacart_project/         # Settings, URLs, Views & CORS Middleware
+│   ├── accounts/                 # User Auth, Profiles, and Registration
+│   ├── products/                 # Product Catalog, Categories, Deals & Search
+│   ├── cart_app/                 # Cart CRUD, Calculations & Wishlist
+│   ├── orders/                   # Orders, Price Snapshots, Idempotency & Tracking
+│   └── notifications_app/        # In-App Notifications & Alerts
 │
-├── accounts/                     # User accounts & profiles app
-│   ├── models.py                 # Profile model (phone, address, avatar)
-│   └── views.py                  # Register, Login, Logout, Profile APIs
+├── database/                     # Dedicated Database Layer
+│   ├── db.sqlite3                # Pre-seeded SQLite relational database
+│   ├── schema.sql                # Complete SQL DDL relational schema definition
+│   └── seed_db.py                # Database seeding script (categories, products, demo users)
 │
-├── products/                     # Product catalog app
-│   ├── models.py                 # Category & Product models
-│   └── views.py                  # Products list, detail, and categories APIs
-│
-├── cart_app/                     # Shopping cart & wishlist app
-│   ├── models.py                 # CartItem & WishlistItem models
-│   └── views.py                  # Cart CRUD & Wishlist toggle APIs
-│
-├── orders/                       # Order processing & tracking app
-│   ├── models.py                 # Order & OrderItem models (snapshots, idempotency)
-│   └── views.py                  # Order creation, order list, ownership checks, tracking APIs
-│
-├── notifications_app/            # Notifications app
-│   ├── models.py                 # Notification model
-│   └── views.py                  # Notification list and mark-as-read APIs
-│
-├── css/                          # Stylesheets
-│   ├── style.css                 # Global design system & home page styles
-│   ├── orders.css                # Orders, Order Details, Tracking & Recent Orders styling
-│   ├── shop.css                  # Shop catalog and filter styling
-│   ├── product.css               # Product detail view styling
-│   ├── cart.css                  # Cart and checkout flow styling
-│   └── notifications.css         # Notification center styling
-│
-├── js/                           # JavaScript modules
-│   ├── api-client.js             # Centralized NovaAPI service & global badge sync
-│   ├── script.js                 # Home page dynamic logic & recent orders loader
-│   ├── orders.js                 # My Orders page logic
-│   ├── order-details.js          # Order Details & invoice generator logic
-│   ├── order-tracking.js         # Order Tracking live timeline logic
-│   ├── shop.js                   # Shop catalog, multi-facet filtering & sorting
-│   ├── product.js                # Product detail interactions
-│   ├── cart.js                   # Cart calculations and side drawer
-│   ├── payment.js                # Payment simulation & order creation trigger
-│   └── login.js / register.js    # Authentication and inline validation
-│
-├── assets/                       # Static media assets
-│   ├── icons/                    # SVG vector icons
-│   ├── products/                 # Product SVG/image assets
-│   ├── categories/               # Category icon assets
-│   └── avatars/                  # User avatar illustrations
-│
-├── index.html                    # Home Page
-├── shop.html                     # Shop Page
-├── product.html                  # Product Detail Page
-├── cart.html                     # Cart Page
-├── empty-cart.html               # Empty Cart Page
-├── checkout.html                 # Checkout Page
-├── payment.html                  # Payment Page
-├── order-success.html            # Order Success Page
-├── orders.html                   # My Orders Page
-├── order-details.html            # Order Details Page
-├── order-tracking.html           # Order Tracking Page
-├── wishlist.html                 # Wishlist Page
-├── profile.html                  # Profile Page
-├── login.html                    # Login Page
-├── register.html                 # Registration Page
-├── notifications.html            # Notifications Page
-└── 404.html                      # 404 Page
+├── FRONTEND.md                   # Detailed Frontend Architecture & UI Documentation
+├── BACKEND.md                    # Detailed Backend Architecture & API Documentation
+├── DATABASE.md                   # Detailed Database Schema & ER Diagram Documentation
+├── README.md                     # Master Project Documentation & Quickstart
+├── requirements.txt              # Root dependency specification
+├── manage.py                     # Root CLI runner (delegates to backend)
+└── .gitignore                    # Git ignore rules for Python, cache, and OS files
 ```
 
 ---

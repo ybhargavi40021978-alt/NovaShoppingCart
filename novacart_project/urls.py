@@ -84,6 +84,7 @@ urlpatterns = [
     path('404.html', serve_page('404.html')),
 
     # --- Static Asset Serving ---
-    re_path(r'^(?P<path>(css|js|assets)/.*)$', serve, {'document_root': settings.BASE_DIR}),
+    re_path(r'^(?P<path>(css|js|assets)/.*)$', serve, {'document_root': getattr(settings, 'FRONTEND_DIR', settings.BASE_DIR)}),
+    re_path(r'^frontend/(?P<path>(css|js|assets)/.*)$', serve, {'document_root': getattr(settings, 'FRONTEND_DIR', settings.BASE_DIR)}),
     re_path(r'^novacart/(?P<path>(css|js|assets)/.*)$', serve, {'document_root': os.path.join(settings.BASE_DIR, 'novacart')}),
 ]

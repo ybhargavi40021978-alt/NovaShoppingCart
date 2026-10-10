@@ -8,6 +8,15 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Dynamic Project Root Resolution (supports running from root or backend/)
+if BASE_DIR.name == 'backend':
+    PROJECT_ROOT = BASE_DIR.parent
+else:
+    PROJECT_ROOT = BASE_DIR
+
+FRONTEND_DIR = PROJECT_ROOT / 'frontend' if (PROJECT_ROOT / 'frontend').exists() else PROJECT_ROOT
+DATABASE_DIR = PROJECT_ROOT / 'database' if (PROJECT_ROOT / 'database').exists() else PROJECT_ROOT
+
 SECRET_KEY = 'django-insecure-m9y2!3n)ty65zpbh4d1%yk90(c3_@gjh(2c)62hlm=(_e=9%=b'
 
 DEBUG = True
@@ -47,7 +56,7 @@ ROOT_URLCONF = 'novacart_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR],
+        'DIRS': [FRONTEND_DIR, BASE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -61,10 +70,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'novacart_project.wsgi.application'
 
+DB_FILE = (DATABASE_DIR / 'db.sqlite3') if (DATABASE_DIR / 'db.sqlite3').exists() else (PROJECT_ROOT / 'db.sqlite3')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': DB_FILE,
     }
 }
 
@@ -82,6 +92,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
+    FRONTEND_DIR,
     BASE_DIR,
 ]
 

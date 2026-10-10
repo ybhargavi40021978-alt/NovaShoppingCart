@@ -4,9 +4,18 @@ from django.http import HttpResponse, Http404
 
 def serve_page(page_name):
     def view(request):
-        file_path = os.path.join(settings.BASE_DIR, page_name)
-        if not os.path.exists(file_path):
-            file_path = os.path.join(settings.BASE_DIR, 'novacart', page_name)
+        frontend_dir = str(getattr(settings, 'FRONTEND_DIR', settings.BASE_DIR))
+        candidates = [
+            os.path.join(frontend_dir, page_name),
+            os.path.join(settings.BASE_DIR, 'frontend', page_name),
+            os.path.join(settings.BASE_DIR, page_name),
+            os.path.join(settings.BASE_DIR, 'novacart', page_name),
+        ]
+        file_path = None
+        for candidate in candidates:
+            if os.path.exists(candidate):
+                file_path = candidate
+                break
         
         if os.path.exists(file_path):
             with open(file_path, 'r', encoding='utf-8') as f:
