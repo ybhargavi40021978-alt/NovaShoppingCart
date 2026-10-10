@@ -1,0 +1,486 @@
+/* ==========================================================================
+   NovaCart - Interface #11: Order Success Page (My Account Dashboard Reference)
+   ========================================================================== */
+
+:root {
+  --nc-primary: #5145E5;
+  --nc-primary-dark: #4638B8;
+  --nc-primary-light: #EEEEFF;
+  --nc-primary-hover: #F4F4FD;
+  --nc-bg: #F7F8FC;
+  --nc-white: #FFFFFF;
+  --nc-text: #182044;
+  --nc-text-dark: #18205A;
+  --nc-secondary: #61708D;
+  --nc-muted: #8A91A8;
+  --nc-border: #E2E6F0;
+  --nc-divider: #E7EAF2;
+  --nc-card-border: #B8C3F5;
+  --nc-stat-border: #E4E7F0;
+  --nc-success: #20A464;
+  --nc-success-light: rgba(32, 164, 100, 0.08);
+  --nc-success-border: rgba(32, 164, 100, 0.35);
+  --nc-teal: #168B53;
+  --nc-teal-light: rgba(22, 139, 83, 0.08);
+  --nc-teal-border: rgba(22, 139, 83, 0.35);
+}
+
+/* Page Body */
+.order-success-body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--nc-bg);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--nc-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Viewport Wrapper */
+.order-success-viewport-wrapper {
+  width: 1220px;
+  max-width: 95%;
+  margin: 40px auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page Label: [11] Order Success Page */
+.page-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.page-label .page-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--nc-primary);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.page-label h1 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--nc-text-dark);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Main Dashboard Card Container */
+.dashboard-container {
+  width: 100%;
+  background: var(--nc-white);
+  border: 1px solid var(--nc-card-border);
+  border-radius: 9px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 4px rgba(81, 69, 229, 0.03);
+  display: flex;
+  min-height: 520px;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   LEFT SIDEBAR: My Account
+   -------------------------------------------------------------------------- */
+.dashboard-sidebar {
+  width: 28%;
+  min-width: 230px;
+  max-width: 300px;
+  padding: 28px 20px 28px 24px;
+  border-right: 1px solid var(--nc-divider);
+  box-sizing: border-box;
+  background: var(--nc-white);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--nc-text);
+  margin: 0 0 20px 0;
+  letter-spacing: -0.01em;
+  padding-left: 8px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--nc-secondary);
+  text-decoration: none;
+  transition: all 0.15s ease;
+  user-select: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.sidebar-nav-item .nav-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+.sidebar-nav-item:hover {
+  background-color: var(--nc-primary-hover);
+  color: var(--nc-primary);
+}
+
+.sidebar-nav-item.active {
+  background-color: var(--nc-primary-light);
+  color: var(--nc-primary);
+  font-weight: 600;
+}
+
+.sidebar-nav-item.active .nav-icon {
+  color: var(--nc-primary);
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT CONTENT: Welcome, Statistics, Recent Orders
+   -------------------------------------------------------------------------- */
+.dashboard-content {
+  flex: 1;
+  padding: 28px 32px 32px;
+  box-sizing: border-box;
+  background: var(--nc-white);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Welcome Section */
+.welcome-header {
+  margin-bottom: 22px;
+}
+
+.welcome-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--nc-text);
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+}
+
+.welcome-subtext {
+  font-size: 11.5px;
+  color: var(--nc-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Statistics Cards Row */
+.statistics-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: var(--nc-white);
+  border: 1px solid var(--nc-stat-border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 98px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat-card-title {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--nc-secondary);
+  margin: 0;
+}
+
+.stat-card-icon {
+  width: 17px;
+  height: 17px;
+  color: var(--nc-muted);
+  flex-shrink: 0;
+}
+
+.stat-card-value {
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--nc-text);
+  margin: 8px 0 0 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Green accent for Total Spent */
+.stat-card.stat-spent .stat-card-value {
+  color: var(--nc-success);
+}
+
+.stat-card.stat-spent .stat-card-icon {
+  color: var(--nc-success);
+}
+
+/* --------------------------------------------------------------------------
+   RECENT ORDERS SECTION
+   -------------------------------------------------------------------------- */
+.recent-orders-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.recent-orders-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.recent-orders-title {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--nc-text);
+  margin: 0;
+}
+
+.view-all-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--nc-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.view-all-link:hover {
+  color: var(--nc-primary-dark);
+  transform: translateX(2px);
+}
+
+/* Orders List / Table */
+.orders-table-wrapper {
+  width: 100%;
+  border: 1px solid var(--nc-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--nc-white);
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.orders-table tbody tr {
+  border-bottom: 1px solid var(--nc-divider);
+  transition: background-color 0.1s ease;
+}
+
+.orders-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.orders-table tbody tr:hover {
+  background-color: #FAFAFD;
+}
+
+.orders-table td {
+  padding: 13px 18px;
+  font-size: 13.5px;
+  color: var(--nc-text);
+  vertical-align: middle;
+}
+
+.order-id-cell {
+  font-weight: 600;
+  color: var(--nc-text);
+}
+
+.order-date-cell {
+  color: var(--nc-secondary);
+  font-size: 13px;
+}
+
+.order-amount-cell {
+  font-weight: 600;
+  color: var(--nc-text);
+}
+
+.order-status-cell {
+  text-align: right;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.status-badge.status-delivered {
+  color: var(--nc-success);
+  background-color: var(--nc-success-light);
+  border: 1px solid var(--nc-success-border);
+}
+
+.status-badge.status-shipped {
+  color: var(--nc-teal);
+  background-color: var(--nc-teal-light);
+  border: 1px solid var(--nc-teal-border);
+}
+
+/* Skeleton Loading State */
+.skeleton-text {
+  background: linear-gradient(90deg, #F0F2F7 25%, #E6E9F0 50%, #F0F2F7 75%);
+  background-size: 200% 100%;
+  animation: nc-shimmer 1.4s infinite;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+@keyframes nc-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Empty State */
+.empty-orders-box {
+  padding: 32px 20px;
+  text-align: center;
+  color: var(--nc-muted);
+  font-size: 13.5px;
+}
+
+.empty-orders-box a {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--nc-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .dashboard-sidebar {
+    width: 25%;
+    padding: 24px 16px;
+  }
+
+  .dashboard-content {
+    padding: 24px 24px 28px;
+  }
+
+  .statistics-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .order-success-viewport-wrapper {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .dashboard-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .dashboard-sidebar {
+    width: 100%;
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--nc-divider);
+    padding: 18px 18px 14px;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .sidebar-nav-item {
+    padding: 8px 12px;
+    font-size: 13px;
+    width: auto;
+  }
+
+  .dashboard-content {
+    padding: 20px 18px 24px;
+  }
+
+  .statistics-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .orders-table td {
+    padding: 10px 12px;
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistics-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .order-date-cell {
+    display: none;
+  }
+}

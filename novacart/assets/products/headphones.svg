@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d3748"/>
+      <stop offset="100%" stop-color="#1a202c"/>
+    </linearGradient>
+    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5b4bdb"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#171923" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <ellipse cx="250" cy="430" rx="160" ry="22" fill="#e2e8f0" opacity="0.6" filter="url(#softShadow)"/>
+  <!-- Headband -->
+  <path d="M 120 280 C 110 120, 390 120, 380 280" fill="none" stroke="url(#hpGrad)" stroke-width="32" stroke-linecap="round"/>
+  <path d="M 140 220 C 140 140, 360 140, 360 220" fill="none" stroke="url(#purpleGlow)" stroke-width="12" stroke-linecap="round" opacity="0.8"/>
+  <!-- Inner Cushion -->
+  <path d="M 150 200 C 170 150, 330 150, 350 200" fill="none" stroke="#4a5568" stroke-width="16" stroke-linecap="round"/>
+  <!-- Left Ear Cup -->
+  <g filter="url(#softShadow)">
+    <rect x="90" y="250" width="60" height="120" rx="30" fill="url(#hpGrad)"/>
+    <rect x="100" y="260" width="40" height="100" rx="20" fill="#2d3748"/>
+    <circle cx="120" cy="310" r="14" fill="url(#purpleGlow)"/>
+    <path d="M 116 295 L 124 295" stroke="#a0aec0" stroke-width="2"/>
+    <rect x="125" y="270" width="30" height="80" rx="15" fill="#1a202c"/>
+  </g>
+  <!-- Right Ear Cup -->
+  <g filter="url(#softShadow)">
+    <rect x="350" y="250" width="60" height="120" rx="30" fill="url(#hpGrad)"/>
+    <rect x="360" y="260" width="40" height="100" rx="20" fill="#2d3748"/>
+    <circle cx="380" cy="310" r="14" fill="url(#purpleGlow)"/>
+    <path d="M 376 295 L 384 295" stroke="#a0aec0" stroke-width="2"/>
+    <rect x="345" y="270" width="30" height="80" rx="15" fill="#1a202c"/>
+  </g>
+  <!-- Accents -->
+  <circle cx="250" cy="140" r="4" fill="#a0aec0"/>
+</svg>

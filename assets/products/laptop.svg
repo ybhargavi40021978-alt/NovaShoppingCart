@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="laptopBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="screenWallpaper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="50%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <filter id="laptopShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <ellipse cx="250" cy="410" rx="200" ry="20" fill="#cbd5e1" opacity="0.6"/>
+  <!-- Screen Lid -->
+  <g filter="url(#laptopShadow)">
+    <rect x="90" y="100" width="320" height="210" rx="14" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+    <!-- Screen Bezel & Display -->
+    <rect x="102" y="112" width="296" height="186" rx="6" fill="url(#screenWallpaper)"/>
+    <!-- Screen Notch/Camera -->
+    <circle cx="250" cy="106" r="2.5" fill="#64748b"/>
+    <!-- Wallpaper graphics -->
+    <path d="M 120 280 C 180 200, 260 270, 380 180 L 398 298 L 102 298 Z" fill="#ffffff" opacity="0.12"/>
+    <circle cx="340" cy="160" r="40" fill="#ffffff" opacity="0.15"/>
+  </g>
+  <!-- Base / Keyboard Deck -->
+  <path d="M 50 330 L 450 330 L 415 365 L 85 365 Z" fill="url(#laptopBody)" filter="url(#laptopShadow)"/>
+  <!-- Trackpad cutout -->
+  <rect x="210" y="340" width="80" height="20" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <!-- Lip notch -->
+  <path d="M 235 330 L 265 330 L 260 334 L 240 334 Z" fill="#64748b"/>
+</svg>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 Order Tracking Page — NovaCart</title>
+  <meta name="description" content="NovaCart Order Tracking Page - Interface #12 Fullscreen Design">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/order-tracking.css">
+</head>
+<body class="order-tracking-body">
+
+  <!-- ==========================================================================
+       HEADER — NOVACART FULLSCREEN BRAND HEADER
+       ========================================================================== -->
+  <header class="tracking-site-header" id="mainHeader">
+    <div class="tracking-header-inner">
+      <!-- Brand Logo -->
+      <a href="index.html" class="tracking-logo" id="brandLogo" aria-label="NovaCart Home">
+        <div class="tracking-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+        </div>
+        <span>NovaCart</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav aria-label="Primary Navigation">
+        <ul class="tracking-nav">
+          <li><a href="index.html" class="tracking-nav-link">Home</a></li>
+          <li><a href="shop.html" class="tracking-nav-link">Shop</a></li>
+          <li><a href="index.html#categories" class="tracking-nav-link">Categories</a></li>
+          <li><a href="index.html#flash-sale" class="tracking-nav-link">Deals</a></li>
+          <li><a href="orders.html" class="tracking-nav-link">Orders</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="tracking-header-actions">
+        <a href="wishlist.html" class="tracking-action-btn" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </a>
+
+        <a href="cart.html" class="tracking-action-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+        </a>
+
+        <a href="order-success.html" class="tracking-action-btn" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT — FULLSCREEN TWO-COLUMN DASHBOARD
+       ========================================================================== -->
+  <main class="tracking-main-content" role="main">
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="tracking-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="order-success.html">My Account</a>
+      <span>/</span>
+      <a href="orders.html">Orders</a>
+      <span>/</span>
+      <span class="current" id="breadcrumbOrderId">Track #NC10456</span>
+    </nav>
+
+    <!-- Page Label: [12] Order Tracking Page -->
+    <div class="page-label">
+      <span class="page-number">12</span>
+      <h1>Order Tracking Page</h1>
+    </div>
+
+    <!-- Order Overview Banner -->
+    <div class="order-overview-banner">
+      <div class="overview-meta">
+        <div class="meta-block">
+          <span class="meta-label">Order Number</span>
+          <span class="meta-value" id="bannerOrderId">#NC10456</span>
+        </div>
+        <div class="meta-block">
+          <span class="meta-label">Placed On</span>
+          <span class="meta-value">Oct 3, 2026</span>
+        </div>
+        <div class="meta-block">
+          <span class="meta-label">Estimated Delivery</span>
+          <span class="meta-value">Oct 5, 2026</span>
+        </div>
+      </div>
+      <div class="status-pill">
+        <span class="status-pill-dot"></span>
+        <span>Out for Delivery</span>
+      </div>
+    </div>
+
+    <!-- Two-Column Grid -->
+    <div class="tracking-dashboard-grid">
+
+      <!-- LEFT COLUMN: The Exact Reference Tracking Card -->
+      <section class="tracking-card" aria-label="Tracking Progress">
+        <header class="tracking-header">
+          <h2>Track Your Order</h2>
+          <p class="order-number" id="orderNumberDisplay">Order #NC10456</p>
+        </header>
+
+        <!-- Vertical Timeline (Exact 5 Stages from Reference) -->
+        <div class="tracking-timeline" id="trackingTimelineContainer" aria-label="Order Tracking Timeline">
+
+          <!-- 1. Order Placed -->
+          <div class="tracking-item completed">
+            <div class="timeline-indicator-col">
+              <div class="timeline-connector" aria-hidden="true"></div>
+              <div class="timeline-indicator" aria-label="Order Placed completed">
+                <svg class="timeline-check-svg" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="2.5 6 4.8 8.5 9.5 3.5"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="timeline-content">
+              <h3>Order Placed</h3>
+              <p>Oct 3, 2026 - 10:24 AM</p>
+            </div>
+          </div>
+
+          <!-- 2. Confirmed -->
+          <div class="tracking-item completed">
+            <div class="timeline-indicator-col">
+              <div class="timeline-connector" aria-hidden="true"></div>
+              <div class="timeline-indicator" aria-label="Confirmed completed">
+                <svg class="timeline-check-svg" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="2.5 6 4.8 8.5 9.5 3.5"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="timeline-content">
+              <h3>Confirmed</h3>
+              <p>Oct 3, 2026 - 2:16 PM</p>
+            </div>
+          </div>
+
+          <!-- 3. Shipped -->
+          <div class="tracking-item completed">
+            <div class="timeline-indicator-col">
+              <div class="timeline-connector" aria-hidden="true"></div>
+              <div class="timeline-indicator" aria-label="Shipped completed">
+                <svg class="timeline-check-svg" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="2.5 6 4.8 8.5 9.5 3.5"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="timeline-content">
+              <h3>Shipped</h3>
+              <p>Oct 4, 2026 - 9:30 AM</p>
+            </div>
+          </div>
+
+          <!-- 4. Out for Delivery -->
+          <div class="tracking-item completed">
+            <div class="timeline-indicator-col">
+              <div class="timeline-connector" aria-hidden="true"></div>
+              <div class="timeline-indicator" aria-label="Out for Delivery completed">
+                <svg class="timeline-check-svg" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="2.5 6 4.8 8.5 9.5 3.5"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="timeline-content">
+              <h3>Out for Delivery</h3>
+              <p>Oct 5, 2026 - 11:20 AM</p>
+            </div>
+          </div>
+
+          <!-- 5. Delivered -->
+          <div class="tracking-item completed">
+            <div class="timeline-indicator-col">
+              <div class="timeline-indicator" aria-label="Delivered completed">
+                <svg class="timeline-check-svg" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="2.5 6 4.8 8.5 9.5 3.5"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="timeline-content">
+              <h3>Delivered</h3>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: Package & Delivery Information Card -->
+      <aside class="shipment-details-card" aria-label="Shipment Details">
+
+        <!-- Delivery Address Block -->
+        <div>
+          <h3 class="details-block-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Delivery Address
+          </h3>
+          <p class="address-text">
+            <strong>Priya Sharma</strong><br>
+            124 Park View Residency, 2nd Main Road<br>
+            Indiranagar, Bengaluru, Karnataka — 560038<br>
+            Phone: +91 98765 43210
+          </p>
+        </div>
+
+        <!-- Carrier Info Block -->
+        <div>
+          <h3 class="details-block-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+            Carrier Details
+          </h3>
+          <div class="carrier-info-row">
+            <span class="carrier-name">NovaExpress Priority</span>
+            <span class="carrier-tracking-id">NC-TRK-98241</span>
+          </div>
+        </div>
+
+        <!-- Items in Shipment Block -->
+        <div>
+          <h3 class="details-block-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            Items in this Shipment (2)
+          </h3>
+          <div class="items-list-container" id="trackedItemsContainer">
+            <!-- Item 1 -->
+            <div class="tracked-item">
+              <img src="assets/products/headphones.svg" alt="Wireless Noise-Canceling Headphones" class="item-thumb" onerror="this.src='assets/icons/logo.svg';">
+              <div class="item-info">
+                <h4 class="item-name">Wireless Headphones</h4>
+                <p class="item-qty">Qty: 1</p>
+              </div>
+              <span class="item-price">$110.00</span>
+            </div>
+            <!-- Item 2 -->
+            <div class="tracked-item">
+              <img src="assets/products/smartwatch.svg" alt="Pro Series Smart Watch" class="item-thumb" onerror="this.src='assets/icons/logo.svg';">
+              <div class="item-info">
+                <h4 class="item-name">Pro Series Smart Watch</h4>
+                <p class="item-qty">Qty: 1</p>
+              </div>
+              <span class="item-price">$63.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Support Actions -->
+        <div class="tracking-support-actions">
+          <a href="orders.html" class="btn-secondary-action">Back to Orders</a>
+          <a href="index.html#about" class="btn-secondary-action">Need Help?</a>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER — COMPLETE NOVACART FOOTER
+       ========================================================================== -->
+  <footer class="tracking-site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>NovaCart</h3>
+          <p>Your trusted destination for quality products at great prices with real-time package tracking.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>SHOP</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="index.html#categories">Categories</a></li>
+            <li><a href="index.html#flash-sale">Deals</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>CUSTOMER SERVICE</h4>
+          <ul>
+            <li><a href="index.html#about">Contact Us</a></li>
+            <li><a href="index.html#about">Shipping Policy</a></li>
+            <li><a href="index.html#about">Returns &amp; Refunds</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>ACCOUNT</h4>
+          <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="order-success.html">My Dashboard</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 NovaCart. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="index.html#privacy">Privacy Policy</a>
+          <a href="index.html#terms">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api-client.js"></script>
+
+  <script src="js/order-tracking.js"></script>
+</body>
+</html>

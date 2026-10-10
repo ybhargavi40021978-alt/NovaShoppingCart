@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="runnerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <filter id="runnerShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <ellipse cx="250" cy="400" rx="170" ry="18" fill="#cbd5e1" opacity="0.6"/>
+  <g filter="url(#runnerShadow)">
+    <!-- Sole -->
+    <path d="M 80 340 C 130 350, 380 345, 425 330 C 430 350, 415 365, 380 365 C 260 365, 110 370, 75 360 C 65 348, 75 340, 80 340 Z" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <!-- Cushion mid-layer -->
+    <path d="M 75 360 C 120 370, 260 365, 380 365 C 415 365, 430 350, 425 330 L 428 342 C 425 365, 395 375, 370 375 L 95 375 C 75 375, 70 365, 75 360 Z" fill="#38bdf8"/>
+    <!-- Upper Body -->
+    <path d="M 90 340 C 80 300, 100 240, 140 200 C 170 170, 210 200, 240 235 C 290 255, 360 275, 415 310 C 425 320, 425 330, 415 335 C 380 345, 120 345, 90 340 Z" fill="url(#runnerGrad)"/>
+    <!-- Collar -->
+    <path d="M 140 200 C 155 170, 195 175, 210 205 C 180 215, 155 210, 140 200 Z" fill="#0f172a"/>
+    <!-- Laces -->
+    <path d="M 185 220 L 215 235 M 200 240 L 230 255 M 220 260 L 250 275" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <!-- Dynamic stripe -->
+    <path d="M 150 310 Q 230 305, 320 265 Q 260 325, 160 320 Z" fill="#ffffff"/>
+  </g>
+</svg>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireless Headphones — NovaCart</title>
+  <meta name="description" content="Premium wireless headphones designed for immersive sound, comfortable everyday listening and long-lasting performance.">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION (Consistent with Interfaces #1 and #2)
+       ========================================================================== -->
+  <header class="header" id="mainHeader">
+    <div class="container header-inner">
+      <!-- Brand Logo -->
+      <a href="index.html" class="logo" id="brandLogo" aria-label="NovaCart Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+        </div>
+        <span>NovaCart</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="shop.html" class="nav-link active">Shop</a></li>
+          <li><a href="index.html#categories" class="nav-link">Categories</a></li>
+          <li><a href="index.html#flash-sale" class="nav-link">Deals</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Right: Search & Actions -->
+      <div class="header-actions">
+        <!-- Search Box -->
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" class="search-input" id="headerSearchInput" placeholder="Search products..." autocomplete="off">
+        </div>
+
+        <!-- Wishlist Icon -->
+        <button class="action-btn" id="headerWishlistBtn" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </button>
+
+        <!-- Cart Icon with Count Badge -->
+        <button class="action-btn" id="headerCartBtn" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="action-badge" id="cartBadge">0</span>
+        </button>
+
+        <!-- Account Icon -->
+        <button class="action-btn" id="headerAccountBtn" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="index.html#categories">Categories</a></li>
+        <li><a href="index.html#flash-sale">Deals</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="#wishlist">Wishlist</a></li>
+        <li><a href="#cart">Cart</a></li>
+        <li><a href="#account">Account</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN PRODUCT DETAILS LAYOUT
+       ========================================================================== -->
+  <main class="product-details-main">
+    <div class="product-container">
+      <!-- Breadcrumb -->
+      <nav class="product-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="product-breadcrumb-sep">/</span>
+        <a href="shop.html">Shop</a>
+        <span class="product-breadcrumb-sep">/</span>
+        <a href="shop.html?category=Electronics">Electronics</a>
+        <span class="product-breadcrumb-sep">/</span>
+        <span class="product-breadcrumb-curr" id="breadcrumbProductName">Wireless Headphones</span>
+      </nav>
+
+      <!-- Main Product Section: Gallery + Information (50% / 50%) -->
+      <section class="product-overview-grid" aria-label="Product Showcase">
+        <!-- Left: Image Gallery -->
+        <div class="product-gallery-wrap">
+          <!-- 4 Vertical Thumbnails -->
+          <div class="product-thumbs-column" id="thumbsContainer">
+            <!-- Dynamically populated by product.js -->
+          </div>
+
+          <!-- Large Main Product Image Box with Subtle Zoom -->
+          <div class="product-main-img-box" id="mainImgBox">
+            <img id="mainProductImg" src="assets/products/headphones-1.svg" alt="Wireless Headphones">
+          </div>
+        </div>
+
+        <!-- Right: Product Information Column -->
+        <div class="product-info-panel">
+          <!-- Stock Status -->
+          <span class="product-stock-tag" id="productStockBadge">In Stock</span>
+
+          <!-- Product Title -->
+          <h1 class="product-main-title" id="productTitle">Wireless Headphones</h1>
+
+          <!-- Rating -->
+          <div class="product-rating-line">
+            <span class="product-stars-wrap">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </span>
+            <span class="product-rating-score">4.8</span>
+            <button type="button" class="product-reviews-link" id="reviewsLink">(124 Reviews)</button>
+          </div>
+
+          <!-- Price & Discount -->
+          <div class="product-price-section">
+            <span class="product-current-price" id="productPriceCurrent">$99.00</span>
+            <span class="product-strikethrough-price" id="productPriceOld">$149.00</span>
+            <span class="product-discount-pill" id="productDiscountBadge">33% OFF</span>
+          </div>
+
+          <!-- Short Description -->
+          <p class="product-short-description" id="productDescriptionText">
+            Premium wireless headphones designed for immersive sound, comfortable everyday listening and long-lasting performance.
+          </p>
+
+          <!-- Color Selector -->
+          <div class="product-color-group">
+            <span class="product-option-label">
+              Color: <span id="selectedColorText" style="color: var(--muted); font-weight: 500;">Black</span>
+            </span>
+            <div class="product-color-options" id="colorOptionsContainer">
+              <!-- Dynamically populated by product.js -->
+            </div>
+          </div>
+
+          <!-- Quantity Selector -->
+          <div class="product-quantity-group">
+            <span class="product-option-label">Quantity</span>
+            <div class="quantity-control-box">
+              <button type="button" class="qty-btn" id="qtyDecrease" aria-label="Decrease quantity">&minus;</button>
+              <span class="qty-number" id="qtyNumber">1</span>
+              <button type="button" class="qty-btn" id="qtyIncrease" aria-label="Increase quantity">&plus;</button>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="product-actions-row">
+            <button type="button" class="btn-detail-add-cart" id="btnDetailAddCart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"/>
+                <circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+              Add to Cart
+            </button>
+
+            <button type="button" class="btn-detail-wishlist" id="btnDetailWishlist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+              Wishlist
+            </button>
+          </div>
+
+          <!-- Product Benefits -->
+          <div class="product-benefits-row">
+            <div class="benefit-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Free Shipping
+            </div>
+            <div class="benefit-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Easy Returns
+            </div>
+            <div class="benefit-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Secure Payment
+            </div>
+          </div>
+          <div class="shipping-note-line">
+            Free delivery on orders over ₹499 &bull; Estimated delivery: 3–5 business days
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           PRODUCT INFORMATION TABS (Description | Specifications | Reviews)
+           ========================================================================== -->
+      <section class="product-tabs-card" aria-label="Product Information Details">
+        <nav class="tabs-nav-bar" aria-label="Product Details Tabs">
+          <button type="button" class="tab-nav-item active" data-tab="desc">Description</button>
+          <button type="button" class="tab-nav-item" data-tab="specs">Specifications</button>
+          <button type="button" class="tab-nav-item" data-tab="reviews">Reviews</button>
+        </nav>
+
+        <!-- Tab Panel 1: Description -->
+        <div class="tab-panel-content active" id="tab-desc">
+          <p class="desc-tab-text" id="descTabText">
+            Premium wireless headphones designed for immersive sound and comfortable everyday listening.<br><br>
+            Featuring advanced audio technology, long battery life, comfortable ear cushions, and a lightweight design.
+          </p>
+          <ul class="desc-highlights-list" id="descHighlightsList">
+            <!-- Dynamically populated by product.js -->
+          </ul>
+        </div>
+
+        <!-- Tab Panel 2: Specifications -->
+        <div class="tab-panel-content" id="tab-specs">
+          <table class="spec-table">
+            <tbody id="specTableBody">
+              <!-- Dynamically populated by product.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Tab Panel 3: Reviews -->
+        <div class="tab-panel-content" id="tab-reviews">
+          <div class="reviews-tab-layout">
+            <!-- Rating Summary Score Box -->
+            <div class="reviews-score-box">
+              <div class="reviews-score-big">4.8</div>
+              <div class="reviews-stars-large">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="reviews-total-text">Based on 124 Reviews</div>
+            </div>
+
+            <!-- Customer Review Cards -->
+            <div class="reviews-cards-list">
+              <!-- Review 1: Sarah Johnson -->
+              <article class="detail-review-card">
+                <div class="detail-review-top">
+                  <div class="detail-reviewer-info">
+                    <img src="assets/avatars/sarah.svg" alt="Sarah Johnson" class="detail-review-avatar">
+                    <div>
+                      <div class="detail-reviewer-name">Sarah Johnson</div>
+                      <span class="detail-review-verified">&check; Verified Buyer</span>
+                    </div>
+                  </div>
+                  <div class="shop-product-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </div>
+                </div>
+                <p class="detail-review-text">
+                  "Amazing sound quality and very comfortable. I wear these all day during remote work and long flights without any ear fatigue."
+                </p>
+              </article>
+
+              <!-- Review 2: Mike Chen -->
+              <article class="detail-review-card">
+                <div class="detail-review-top">
+                  <div class="detail-reviewer-info">
+                    <img src="assets/avatars/mike.svg" alt="Mike Chen" class="detail-review-avatar">
+                    <div>
+                      <div class="detail-reviewer-name">Mike Chen</div>
+                      <span class="detail-review-verified">&check; Verified Buyer</span>
+                    </div>
+                  </div>
+                  <div class="shop-product-stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </div>
+                </div>
+                <p class="detail-review-text">
+                  "Great battery life and fast delivery. The Bluetooth pairing is instantaneous across both my laptop and phone."
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           YOU MAY ALSO LIKE (Related Products - 4 Cards)
+           ========================================================================== -->
+      <section class="related-products-section" aria-label="Related Products">
+        <h2 class="related-title">You May Also Like</h2>
+        <div class="products-grid" id="relatedProductsGrid">
+          <!-- Dynamically populated by product.js with 4 cards matching Shop Page style -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       SIDE CART DRAWER
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart Drawer">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Shopping Cart</h3>
+      <button class="cart-drawer-close" id="cartDrawerClose" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-drawer-body" id="cartDrawerBody">
+      <!-- Injected by product.js -->
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Subtotal:</span>
+        <span class="cart-total-value" id="cartTotalValue">₹0.00</span>
+      </div>
+      <button class="btn-primary" style="width: 100%; border-radius: 8px;">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       TOAST NOTIFICATION CONTAINER
+       ========================================================================== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- JavaScript -->
+  <script src="js/api-client.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

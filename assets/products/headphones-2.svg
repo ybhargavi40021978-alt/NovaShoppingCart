@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hp2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="purpleAcc2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5b4bdb"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="softSh2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="6" dy="14" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <ellipse cx="270" cy="430" rx="150" ry="20" fill="#cbd5e1" opacity="0.6"/>
+  <!-- Angled headband -->
+  <g filter="url(#softSh2)" transform="rotate(12 250 250)">
+    <path d="M 140 280 C 130 130, 370 130, 360 280" fill="none" stroke="url(#hp2Grad)" stroke-width="30" stroke-linecap="round"/>
+    <path d="M 160 220 C 160 150, 340 150, 340 220" fill="none" stroke="url(#purpleAcc2)" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+    <!-- Left Cup rotated -->
+    <rect x="110" y="250" width="55" height="115" rx="28" fill="url(#hp2Grad)"/>
+    <circle cx="137" cy="305" r="14" fill="url(#purpleAcc2)"/>
+    <!-- Right Cup forward view -->
+    <rect x="335" y="250" width="65" height="120" rx="30" fill="url(#hp2Grad)"/>
+    <rect x="345" y="260" width="45" height="100" rx="22" fill="#1e293b"/>
+    <circle cx="367" cy="310" r="16" fill="url(#purpleAcc2)"/>
+  </g>
+</svg>

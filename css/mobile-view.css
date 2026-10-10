@@ -1,0 +1,957 @@
+/* ==========================================================================
+   NovaCart - Interface #18: Mobile View Page (Fullscreen Mobile Design)
+   Pure CSS3 - Minimal, Clean, Modern, Mobile-First
+   ========================================================================== */
+
+:root {
+  --primary: #5B4BDB;
+  --primary-dark: #4638B8;
+  --primary-light: #F2F0FF;
+  --background: #F7F8FC;
+  --white: #FFFFFF;
+  --text: #171923;
+  --secondary: #555B6E;
+  --muted: #8A90A3;
+  --border: #E6E8EF;
+  --success: #20A464;
+  --danger: #E5484D;
+  --shadow-sm: 0 2px 8px rgba(30, 35, 70, 0.04);
+  --shadow-preview: 0 4px 24px rgba(30, 35, 70, 0.08);
+}
+
+/* Base Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   PRESENTATION WRAPPER (Desktop Viewport Preview)
+   ========================================================================== */
+.mobile-view-presentation {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px 40px;
+  background-color: var(--background);
+}
+
+/* Page Label: [18] Mobile View Page */
+.presentation-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  width: 390px;
+  max-width: 100%;
+}
+
+.presentation-heading .badge-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.presentation-heading h1 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   MOBILE APP SHELL (Smartphone Screen)
+   ========================================================================== */
+.mobile-app {
+  width: 390px;
+  max-width: 100%;
+  min-height: 100vh;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-preview);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding-bottom: 80px; /* Space for fixed bottom navigation */
+}
+
+/* ==========================================================================
+   1. STICKY MOBILE HEADER
+   ========================================================================== */
+.mobile-header {
+  height: 58px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.mobile-menu-button {
+  width: 40px;
+  height: 40px;
+  min-height: 44px; /* Touch target */
+  min-width: 44px;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+}
+
+.mobile-menu-button:hover {
+  background-color: #F1F2F8;
+}
+
+.mobile-menu-button svg {
+  width: 22px;
+  height: 22px;
+}
+
+.novacart-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.novacart-logo svg {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+}
+
+.mobile-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header-icon-btn {
+  width: 38px;
+  height: 38px;
+  min-height: 44px; /* Touch target */
+  min-width: 40px;
+  background: transparent;
+  border: none;
+  color: var(--secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.header-icon-btn:hover {
+  background-color: #F1F2F8;
+  color: var(--primary);
+}
+
+.header-icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.header-badge {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 8.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   2. MOBILE SEARCH BAR
+   ========================================================================== */
+.mobile-search {
+  padding: 10px 14px 4px;
+}
+
+.search-field-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-field-wrapper svg {
+  position: absolute;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.mobile-search-input {
+  width: 100%;
+  height: 42px;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 12px 0 36px;
+  font-size: 13.5px;
+  color: var(--text);
+  font-family: inherit;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.mobile-search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(91, 75, 219, 0.08);
+}
+
+.mobile-search-input::placeholder {
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   3. HERO / PROMOTIONAL SECTION
+   ========================================================================== */
+.mobile-hero {
+  margin: 10px 14px 16px;
+  background: var(--primary-light);
+  border-radius: 12px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(91, 75, 219, 0.1);
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.hero-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-description {
+  font-size: 12px;
+  color: var(--secondary);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 240px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: var(--white);
+  height: 40px;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  width: fit-content;
+  transition: background-color 0.15s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.hero-btn:hover {
+  background: var(--primary-dark);
+}
+
+.hero-visual-thumb {
+  position: absolute;
+  right: -8px;
+  bottom: 0;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+/* ==========================================================================
+   SECTION COMMON STYLES
+   ========================================================================== */
+.mobile-section {
+  padding: 10px 14px 16px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.view-all-link {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.view-all-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. CATEGORIES SECTION (HORIZONTAL SCROLL)
+   ========================================================================== */
+.categories-horizontal-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.categories-horizontal-list::-webkit-scrollbar {
+  display: none;
+}
+
+.category-card {
+  width: 86px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.15s ease;
+}
+
+.category-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.category-img-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+.category-img-wrap img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.category-name {
+  font-size: 10.5px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.category-count {
+  font-size: 8px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   5. FEATURED PRODUCTS & 7. NEW ARRIVALS (2-COLUMN GRID)
+   ========================================================================== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.product-card:hover {
+  border-color: #D3D8E8;
+}
+
+.product-card-top {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.product-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.product-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 8px;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 4px;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.product-badge.sale {
+  background: var(--danger);
+}
+
+.product-badge.new {
+  background: var(--success);
+}
+
+.product-wishlist-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  min-height: 44px; /* Touch friendly click area */
+  min-width: 44px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 0;
+  z-index: 2;
+  transition: all 0.15s ease;
+}
+
+.product-wishlist-btn:hover {
+  color: var(--danger);
+  border-color: #F8B4B4;
+}
+
+.product-wishlist-btn.active {
+  color: var(--danger);
+  background: #FFF5F5;
+  border-color: #FED7D7;
+}
+
+.product-wishlist-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.product-info {
+  padding: 9px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-category {
+  font-size: 8.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 2px;
+}
+
+.product-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.product-title:hover {
+  color: var(--primary);
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px;
+  color: var(--secondary);
+  margin-bottom: 6px;
+}
+
+.product-rating svg {
+  width: 11px;
+  height: 11px;
+  color: #F59E0B;
+  fill: #F59E0B;
+}
+
+.price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.product-price {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.product-old-price {
+  font-size: 9.5px;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.btn-add-cart {
+  width: 100%;
+  height: 36px;
+  min-height: 44px; /* Touch target */
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-size: 10.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background-color 0.15s ease;
+  margin-top: auto;
+  font-family: inherit;
+}
+
+.btn-add-cart:hover {
+  background: var(--primary-dark);
+}
+
+.btn-add-cart:disabled {
+  background: #E2E8F0;
+  color: #A0AEC0;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   6. DEALS SECTION & TIMER
+   ========================================================================== */
+.deals-section {
+  background: #FCFBFF;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 14px 18px;
+  margin: 6px 0 10px;
+}
+
+.deals-header-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.deals-timer-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 3px 8px;
+  border-radius: 14px;
+}
+
+.deals-timer-badge svg {
+  width: 12px;
+  height: 12px;
+}
+
+.deals-horizontal-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.deals-horizontal-list::-webkit-scrollbar {
+  display: none;
+}
+
+.deal-card {
+  width: 160px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+/* ==========================================================================
+   8. PROMOTIONAL BANNER
+   ========================================================================== */
+.mobile-promo-banner {
+  margin: 10px 14px 16px;
+  background: linear-gradient(135deg, #F0EEFF 0%, #E8E5FE 100%);
+  border-radius: 12px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #DED9FA;
+}
+
+.promo-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.promo-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.promo-description {
+  font-size: 11.5px;
+  color: var(--secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.promo-btn {
+  background: var(--text);
+  color: var(--white);
+  height: 38px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-decoration: none;
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s ease;
+}
+
+.promo-btn:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   10. MOBILE BOTTOM NAVIGATION
+   ========================================================================== */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 62px;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -2px 10px rgba(30, 35, 70, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 4px;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  z-index: 1000;
+}
+
+.bottom-nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 8.5px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  position: relative;
+  min-width: 52px;
+  min-height: 44px; /* Touch target */
+}
+
+.bottom-nav-link svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.8;
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+
+.bottom-nav-link:hover,
+.bottom-nav-link.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.bottom-nav-link:hover svg,
+.bottom-nav-link.active svg {
+  color: var(--primary);
+}
+
+.bottom-nav-badge {
+  position: absolute;
+  top: 4px;
+  right: 12px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 7.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATION
+   ========================================================================== */
+.mobile-toast {
+  position: fixed;
+  bottom: 74px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #171923;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1200;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.mobile-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.mobile-toast svg {
+  width: 15px;
+  height: 15px;
+  color: #20A464;
+}
+
+/* ==========================================================================
+   SKELETON LOADER
+   ========================================================================== */
+.skeleton-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeleton-box {
+  background: linear-gradient(90deg, #EEF0F5 25%, #E2E5EE 50%, #EEF0F5 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 4px;
+}
+
+.skeleton-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+}
+
+.skeleton-text {
+  height: 10px;
+  width: 80%;
+}
+
+.skeleton-btn {
+  height: 34px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN RULES
+   ========================================================================== */
+@media (max-width: 600px) {
+  .mobile-view-presentation {
+    padding: 0;
+  }
+
+  .presentation-heading {
+    display: none;
+  }
+
+  .mobile-app {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-header {
+    padding: 0 10px;
+  }
+
+  .mobile-search {
+    padding: 8px 10px 2px;
+  }
+
+  .mobile-hero {
+    margin: 8px 10px 14px;
+    padding: 14px 12px;
+  }
+
+  .mobile-section {
+    padding: 8px 10px 14px;
+  }
+
+  .products-grid {
+    gap: 8px;
+  }
+
+  .category-card {
+    width: 78px;
+  }
+}
