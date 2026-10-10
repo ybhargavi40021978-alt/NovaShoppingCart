@@ -6,6 +6,9 @@ import sys
 
 def main():
     """Run administrative tasks."""
+    backend_dir = os.path.join(os.path.dirname(__file__), 'backend')
+    if os.path.exists(backend_dir) and backend_dir not in sys.path:
+        sys.path.insert(0, backend_dir)
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'novacart_project.settings')
     try:
         from django.core.management import execute_from_command_line
